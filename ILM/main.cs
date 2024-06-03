@@ -32,9 +32,9 @@ namespace ILM
             try
             {
                 string htmlCode = client.DownloadString(url);
-                Console.WriteLine(htmlCode);
+                // Console.WriteLine(htmlCode);
                 Dictionary<string, string> radioStations = ExtractRadioStations(htmlCode);
-                Console.WriteLine(radioStations);
+                // Console.WriteLine(radioStations);
                 foreach (var station in radioStations)
                 {
                     comboBoxStations.Items.Add(station);

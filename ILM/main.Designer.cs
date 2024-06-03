@@ -54,6 +54,7 @@
             this.comboBoxStations.Location = new System.Drawing.Point(23, 63);
             this.comboBoxStations.Name = "comboBoxStations";
             this.comboBoxStations.Size = new System.Drawing.Size(182, 29);
+            this.comboBoxStations.Style = MetroFramework.MetroColorStyle.Black;
             this.comboBoxStations.TabIndex = 2;
             this.comboBoxStations.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.comboBoxStations.UseSelectable = true;
@@ -90,7 +91,6 @@
             this.Controls.Add(this.buttonPlay);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "main";
             this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.White;
