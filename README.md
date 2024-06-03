@@ -16,7 +16,7 @@ The ILM Miniplayer is a simple program that allows you to listen to various radi
 **Disclaimer:**
 
 This program is not the official radio player of ilovemusic. It is merely an application that creates a miniplayer and retrieves the stream links from ilovemusic. </br>
-** The release of this source is approved by i love music.  **
+*The release of this source is approved by i love music.*
 
 **System Requirements:**
 
