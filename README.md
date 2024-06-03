@@ -1,5 +1,5 @@
 
-**ILM Miniplayer**
+# **ILM Miniplayer** [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/wiesty/MMM-MVVWiesty/raw/master/LICENSE) <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"/>
 
 The ILM Miniplayer is a simple program that allows you to listen to various radio stations from ilovemusic. The program offers a user-friendly interface that enables the user to choose between different radio stations and control playback.
 
