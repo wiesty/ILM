@@ -23,6 +23,8 @@ namespace ILM
 
             this.metroTrackBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.metroTrackBar1_Scroll);
             wmpPlayer.PlayStateChange += WmpPlayer_PlayStateChange;
+
+            metroCheckBox1.CheckedChanged += new EventHandler(this.metroCheckBox1_CheckedChanged);
         }
 
         private void LoadRadioStationsFromWebsite()
@@ -32,9 +34,7 @@ namespace ILM
             try
             {
                 string htmlCode = client.DownloadString(url);
-                // Console.WriteLine(htmlCode);
                 Dictionary<string, string> radioStations = ExtractRadioStations(htmlCode);
-                // Console.WriteLine(radioStations);
                 foreach (var station in radioStations)
                 {
                     comboBoxStations.Items.Add(station);
@@ -49,9 +49,7 @@ namespace ILM
         private Dictionary<string, string> ExtractRadioStations(string htmlCode)
         {
             Dictionary<string, string> radioStations = new Dictionary<string, string>();
-
             string pattern = @"<a\s+href=""([^""]+\.m3u)""[^>]*>([^<]+)</a>";
-
             MatchCollection matches = Regex.Matches(htmlCode, pattern);
 
             foreach (Match match in matches)
@@ -65,8 +63,6 @@ namespace ILM
             return radioStations;
         }
 
-
-
         private void buttonPlay_Click_1(object sender, EventArgs e)
         {
             if (buttonPlay.Text == "switch channel")
@@ -76,18 +72,18 @@ namespace ILM
                 wmpPlayer.Ctlcontrols.play();
             }
 
-            if (wmpPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying) 
+            if (wmpPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 wmpPlayer.Ctlcontrols.stop();
-                buttonPlay.Text = "Play"; 
+                buttonPlay.Text = "Play";
             }
-            else 
+            else
             {
                 if (comboBoxStations.SelectedItem != null)
                 {
                     var selectedStation = (KeyValuePair<string, string>)comboBoxStations.SelectedItem;
-                    wmpPlayer.URL = selectedStation.Value; 
-                    wmpPlayer.Ctlcontrols.play(); 
+                    wmpPlayer.URL = selectedStation.Value;
+                    wmpPlayer.Ctlcontrols.play();
                     buttonPlay.Text = "Stop";
                 }
                 else
@@ -99,22 +95,38 @@ namespace ILM
 
         private void WmpPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
-            // Wenn der Player den Status "Wiedergabe" erreicht, ändere den Text des Buttons auf "Stop"
             if (wmpPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 buttonPlay.Text = "Stop";
             }
-            // Wenn der Player aufhört zu spielen, ändere den Text des Buttons zurück auf "Play"
             else if (wmpPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)
             {
                 buttonPlay.Text = "Play";
             }
         }
 
-
         private void metroTrackBar1_Scroll(object sender, ScrollEventArgs e)
         {
-            wmpPlayer.settings.volume = metroTrackBar1.Value;
+            if (metroCheckBox1.Checked)
+            {
+                if (metroTrackBar1.Value >= 1 && metroTrackBar1.Value <= 10)
+                {
+                    wmpPlayer.settings.volume = 1;
+                }
+                else
+                {
+                    wmpPlayer.settings.volume = (int)(metroTrackBar1.Value / 10);
+                }
+            }
+            else
+            {
+                wmpPlayer.settings.volume = metroTrackBar1.Value;
+            }
+        }
+
+        private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            metroTrackBar1_Scroll(this, null);
         }
 
         private void comboBoxStations_SelectedIndexChanged(object sender, EventArgs e)
