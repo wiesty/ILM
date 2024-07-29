@@ -4,6 +4,9 @@ The ILM Miniplayer is a simple program that allows you to listen to various radi
 
 ![ilmplayer](https://i.imgur.com/5Ee86lS.png)
 
+**🥳 Get V2.0.0 🎉 [here](https://github.com/wiesty/ILM/releases/tag/2.0.0)**
+
+
 **Features:**
 
 - 📻 Selection from a variety of radio stations
@@ -21,7 +24,6 @@ The ILM Miniplayer is a simple program that allows you to listen to various radi
 **Disclaimer:**
 
 - 💻 See the Disclaimer [here](https://github.com/wiesty/ILM/blob/master/Disclaimer).
-
 
 **System Requirements:**
 
