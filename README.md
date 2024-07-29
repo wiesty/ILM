@@ -18,7 +18,6 @@ The ILM Miniplayer is a simple program that allows you to listen to various radi
 - 🖼️ Displays cover art for the current song
 - 📋 Copy current song info to clipboard
 - 🔄 Automatic song info update every 45 seconds
-- ⏯️ Control playback using Windows media overlay
 - 🌐 Check for the latest version and prompt for update
 
 **Disclaimer:**
