@@ -28,6 +28,6 @@ The ILM Miniplayer is a simple program that allows you to listen to various radi
 
 - 💻 Windows operating system
 - 🧩 Microsoft .NET Framework 4.8 or higher
-- 🌐 Active internet connection for stream download
+- 🌐 Active internet connection to stream the channels
 
 *The v1 release of this source is approved by ilovemusic.*
